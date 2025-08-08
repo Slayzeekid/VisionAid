@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vision Assistant</title>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <h1 class="app-title">Vision Assistant</h1>
+
+    <div class="video-container">
+      <video id="video" autoplay playsinline></video>
+      <canvas id="detection-canvas"></canvas>
+    </div>
+    
+    <div id="loading-spinner" class="loading-spinner">
+      <p>Loading AI models...</p>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+      <div class="loading-dot"></div>
+    </div>
+
+    <div id="current-status" class="voice-bubble">
+      <p id="status-text">Say "Hey Vision" to start</p>
+      <div id="listening-wave" class="voice-wave"></div>
+    </div>
+
+    <div id="prompt-box" class="prompt-box">
+      <p id="prompt-text">What would you like to do? Detection, Navigation, or Both?</p>
+    </div>
+
+    <div id="detection-info-box" class="detection-info">
+      <p class="section-title">Detected Objects:</p>
+      <ul id="detection-list" class="detection-list"></ul>
+    </div>
+
+    <div id="map-box" class="map-box">
+      <iframe id="map-frame" src="about:blank" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Audio for feedback -->
+  <audio id="start-sound" src="https://www.soundjay.com/buttons/sounds/button-09.mp3"></audio>
+
+  <!-- TensorFlow and COCO-SSD -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+  
+  <!-- Link to the external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>
